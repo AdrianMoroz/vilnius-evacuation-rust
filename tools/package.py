@@ -28,7 +28,7 @@ def package(executable, target, output):
         )
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    with ZipFile(output, "w", compression=ZIP_DEFLATED, compresslevel=9) as archive:
+    with ZipFile(output, "w", compression=ZIP_DEFLATED, compresslevel=9, strict_timestamps=False) as archive:
         archive.write(executable, "VilniusEvacuation.exe")
         archive.write("README.md", "README.md")
         archive.write("assets/README.md", "OPENSTREETMAP.md")
